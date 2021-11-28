@@ -50,7 +50,7 @@ function onConnect() {
       console.log('Subscribing to: ' + topic);
 
     // Subscribe to the requested topic
-    client.subscribe(topic);
+    client.subscribe(topic, { onSuccess: onSuccessSubscribed });
 }
 
 // Called when the client loses its connection
@@ -69,6 +69,9 @@ function onMessageArrived(message) {
 
 }
 
+function onSuccessSubscribed(){
+  console.log("subscribed!");
+}
 
 function onRefresh(chart) {
 }
