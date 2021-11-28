@@ -9,6 +9,19 @@ var usersRouter = require('./routes/users');
 
 var app = express();
 
+const { spawn } = require('child_process');
+const getIP = spawn('sh', ['-c',"ip -o route get to 8.8.8.8 | sed -n 's/.*src \\([0-9.]\\+\\).*/\\1/p'"]);
+
+getIP.stdout.on('data', (data) => {
+  dataStr = data.toString();
+  app.set('mqttBroker', dataStr);
+});
+
+getIP.stderr.on('data', (data) => {
+  console.error(`stderr: ${data}`);
+});
+
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');

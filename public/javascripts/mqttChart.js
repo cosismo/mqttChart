@@ -1,5 +1,6 @@
 
 console.log ('topicv: ' + topicv);
+console.log ('mqttBroker: ' + mqttBroker);
 
 var chartColors = {
     black: 'rgb(0, 0, 0)',
@@ -16,8 +17,7 @@ $(document).ready(function() {
     // Generate a random client ID
     clientID = "clientID-" + parseInt(Math.random() * 100);
 
-    // Fetch the hostname/IP address and port number from the form
-    host = "127.0.0.1";
+    host = mqttBroker;
     port = "9001";
 
     console.log(host + ":" +  port)
@@ -43,7 +43,6 @@ $(document).ready(function() {
 // Called when the client connects
 function onConnect() {
     // Fetch the MQTT topic from the form
-//    topic = "touch/#";
     topic = topicv + "/#";
 
     // Print output for the user in the messages div
