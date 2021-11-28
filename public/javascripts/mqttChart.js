@@ -17,7 +17,7 @@ $(document).ready(function() {
     clientID = "clientID-" + parseInt(Math.random() * 100);
 
     // Fetch the hostname/IP address and port number from the form
-    host = "192.168.8.192";
+    host = "127.0.0.1";
     port = "9001";
 
     console.log(host + ":" +  port)
