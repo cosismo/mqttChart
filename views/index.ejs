@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= topicv %></title>
+    <script>
+      var topicv = <%- JSON.stringify(topicv) %>;
+    </script>
+    <script src="javascripts/moment.min.js"></script>
+    <script src="javascripts/Chart.min.js"></script>
+    <script src="javascripts/chartjs-plugin-streaming.min.js"></script>
+    <script src="javascripts/mqttws31.min.js"></script>
+    <script src="javascripts/jquery.min.js"></script>
+    <script src="javascripts/script.js"></script>
+  </head>
+  <body>
+    <div>
+        <canvas id="mqttChart"></canvas>
+    </div>
+  </body>
+</html>
